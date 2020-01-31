@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Append Element on Mousemove</title>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("mousemove", function(e) {
+        var body = document.querySelector("body");
+        var bubbles = document.createElement("span");
+        var x = e.offsetX;
+        var y = e.offsetY;
+        bubbles.style.left = x + "px";
+        bubbles.style.top = y + "px";
+        var size = Math.random() * 100;
+        bubbles.style.width = 20 + size + "px";
+        bubbles.style.height = 20 + size + "px";
+        body.appendChild(bubbles);
+
+        setTimeout(function() {
+          bubbles.remove();
+        }, 4000);
+      });
+    </script>
+  </body>
+</html>
